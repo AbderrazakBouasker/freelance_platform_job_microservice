@@ -1,13 +1,11 @@
 spring:
   application:
-    name: job-microservice
+    name: job
   datasource:
     url: jdbc:mysql://localhost:3306/JobDatabase?createDatabaseIfNotExist=true&serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password:
-server:
-  port: 8081
   jpa:
     hibernate:
       ddl-auto: create
