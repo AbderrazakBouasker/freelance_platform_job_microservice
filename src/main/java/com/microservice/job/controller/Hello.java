@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Hello {
 
-    @GetMapping("/jobs/hello")
+    @GetMapping("/hello")
     String sayHello() {
-        return "Hello World";
+        return "Hello World from User Microservice";
     }
 
 }

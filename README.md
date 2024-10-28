@@ -19,6 +19,6 @@ docker run -p 9091:8080 --name job-service --network freelance-platform job-serv
 
 ### Test the service
 ```bash
-curl http://localhost:9090/jobs/hello
+curl http://localhost:9091/hello
 ```
 
