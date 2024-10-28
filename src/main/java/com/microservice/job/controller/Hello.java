@@ -8,7 +8,7 @@ public class Hello {
 
     @GetMapping("/hello")
     String sayHello() {
-        return "Hello World from User Microservice";
+        return "Hello World from Job Microservice";
     }
 
 }
