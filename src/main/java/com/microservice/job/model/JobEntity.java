@@ -14,14 +14,14 @@ public class JobEntity {
 
     private String jobDescription;
 
-    private int jobProviderId;
+    private Long jobProviderId;
 
-    private int jobReceiverId;
-
-    @Transient
-    private JobEntity jobProvider;
+    private Long jobReceiverId;
 
     @Transient
-    private JobEntity jobReceiver;
+    private UserEntity jobProvider;
+
+    @Transient
+    private UserEntity jobReceiver;
 
 }
