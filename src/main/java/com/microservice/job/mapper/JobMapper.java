@@ -1,9 +1,7 @@
 package com.microservice.job.mapper;
 
 import com.microservice.job.dto.JobDto;
-import com.microservice.job.dto.UserDto;
 import com.microservice.job.model.JobEntity;
-import com.microservice.job.model.UserEntity;
 
 public class JobMapper {
     public static JobDto mapToJobDto(JobEntity jobEntity, JobDto jobDto) {

@@ -13,7 +13,7 @@ import java.util.List;
 public class JobController {
     private final IJobService jobService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Void> createJob(@RequestBody JobDto jobDto) {
         jobService.createJob(jobDto);
         return ResponseEntity.status(201).build();

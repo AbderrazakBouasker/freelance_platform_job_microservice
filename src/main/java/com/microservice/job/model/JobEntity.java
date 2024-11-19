@@ -18,10 +18,5 @@ public class JobEntity {
 
     private Long jobReceiverId;
 
-    @Transient
-    private UserEntity jobProvider;
-
-    @Transient
-    private UserEntity jobReceiver;
 
 }
