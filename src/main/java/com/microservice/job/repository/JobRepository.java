@@ -2,6 +2,7 @@ package com.microservice.job.repository;
 
 import com.microservice.job.model.JobEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,5 +22,6 @@ public interface JobRepository extends JpaRepository<JobEntity, Long> {
 
     // find jobs by job receiver id or job provider id
     // with just one param, the userId, it will return all jobs where the userId is either the job receiver or the job provider
+    @Query("SELECT j FROM JobEntity j WHERE j.jobReceiverId = :userId OR j.jobProviderId = :userId")
     Optional<List<JobEntity>> findByJobReceiverIdOrJobProviderId(Long userId);
 }
