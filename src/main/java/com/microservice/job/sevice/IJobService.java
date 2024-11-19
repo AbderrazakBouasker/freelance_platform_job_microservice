@@ -54,4 +54,10 @@ public interface IJobService {
      */
     List<JobDto> getAllJobsByJobProviderAndJobReceiver(Long jobProviderId, Long jobReceiverId);
 
+    /**
+     * Get all jobs by job provider or job receiver
+     * @param userId
+     */
+    List<JobDto> getAllJobsByUser(Long userId);
+
 }

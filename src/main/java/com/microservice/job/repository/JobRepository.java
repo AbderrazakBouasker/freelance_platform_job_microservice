@@ -18,4 +18,8 @@ public interface JobRepository extends JpaRepository<JobEntity, Long> {
 
     // find jobs by job receiver id and job provider id
     Optional<List<JobEntity>> findByJobReceiverIdAndJobProviderId(Long jobReceiverId, Long jobProviderId);
+
+    // find jobs by job receiver id or job provider id
+    // with just one param, the userId, it will return all jobs where the userId is either the job receiver or the job provider
+    Optional<List<JobEntity>> findByJobReceiverIdOrJobProviderId(Long userId);
 }

@@ -169,4 +169,25 @@ public class JobService implements IJobService {
 
         return jobDtos;
     }
+
+    /**
+     * Get all jobs by job provider or job receiver
+     *
+     * @param userId
+     */
+    @Override
+    public List<JobDto> getAllJobsByUser(Long userId) {
+        // get all jobs by job provider or job receiver from repository
+        List<JobEntity> jobEntities = jobRepository.findByJobReceiverIdOrJobProviderId(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Job not found"));
+
+        // map jobEntities to jobDtos
+        List<JobDto> jobDtos = List.of();
+        for (JobEntity jobEntity : jobEntities) {
+            JobDto jobDto = new JobDto();
+            JobMapper.mapToJobDto(jobEntity, jobDto);
+            jobDtos.add(jobDto);
+        }
+
+        return jobDtos;
+    }
 }

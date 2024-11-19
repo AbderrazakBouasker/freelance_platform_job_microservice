@@ -5,6 +5,7 @@ import com.microservice.job.model.UserEntity;
 
 public class UserMapper {
     public static UserDto mapToUserDto(UserEntity userEntity, UserDto userDto) {
+        userDto.setUserId(userEntity.getUserId());
         userDto.setUserName(userEntity.getUserName());
         userDto.setFirstName(userEntity.getFirstName());
         userDto.setLastName(userEntity.getLastName());
@@ -18,6 +19,7 @@ public class UserMapper {
     }
 
     public static UserEntity mapToUserEntity(UserDto userDto, UserEntity userEntity) {
+        userEntity.setUserId(userDto.getUserId());
         userEntity.setUserName(userDto.getUserName());
         userEntity.setFirstName(userDto.getFirstName());
         userEntity.setLastName(userDto.getLastName());
