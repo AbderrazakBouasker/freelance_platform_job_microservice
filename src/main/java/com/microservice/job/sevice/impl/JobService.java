@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 //todo: Implement error handling in a better way using ErrorResponseDto and GlobalExceptionHandler
 
@@ -95,7 +96,7 @@ public class JobService implements IJobService {
         List<JobEntity> jobEntities = jobRepository.findAll();
 
         // map jobEntities to jobDtos
-        List<JobDto> jobDtos = List.of();
+        ArrayList<JobDto> jobDtos = new ArrayList<>();
         for (JobEntity jobEntity : jobEntities) {
             JobDto jobDto = new JobDto();
             JobMapper.mapToJobDto(jobEntity, jobDto);
@@ -117,7 +118,7 @@ public class JobService implements IJobService {
         List<JobEntity> jobEntities = jobRepository.findByJobProviderId(jobProviderId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Job not found"));
 
         // map jobEntities to jobDtos
-        List<JobDto> jobDtos = List.of();
+        ArrayList<JobDto> jobDtos = new ArrayList<JobDto>();
         for (JobEntity jobEntity : jobEntities) {
             JobDto jobDto = new JobDto();
             JobMapper.mapToJobDto(jobEntity, jobDto);
@@ -138,7 +139,7 @@ public class JobService implements IJobService {
         List<JobEntity> jobEntities = jobRepository.findByJobReceiverId(jobReceiverId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Job not found"));
 
         // map jobEntities to jobDtos
-        List<JobDto> jobDtos = List.of();
+        ArrayList<JobDto> jobDtos = new ArrayList<JobDto>();
         for (JobEntity jobEntity : jobEntities) {
             JobDto jobDto = new JobDto();
             JobMapper.mapToJobDto(jobEntity, jobDto);
@@ -160,7 +161,7 @@ public class JobService implements IJobService {
         List<JobEntity> jobEntities = jobRepository.findByJobReceiverIdAndJobProviderId(jobReceiverId, jobProviderId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Job not found"));
 
         // map jobEntities to jobDtos
-        List<JobDto> jobDtos = List.of();
+        ArrayList<JobDto> jobDtos = new ArrayList<JobDto>();
         for (JobEntity jobEntity : jobEntities) {
             JobDto jobDto = new JobDto();
             JobMapper.mapToJobDto(jobEntity, jobDto);
@@ -181,7 +182,7 @@ public class JobService implements IJobService {
         List<JobEntity> jobEntities = jobRepository.findByJobReceiverIdOrJobProviderId(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Job not found"));
 
         // map jobEntities to jobDtos
-        List<JobDto> jobDtos = List.of();
+        ArrayList<JobDto> jobDtos = new ArrayList<JobDto>();
         for (JobEntity jobEntity : jobEntities) {
             JobDto jobDto = new JobDto();
             JobMapper.mapToJobDto(jobEntity, jobDto);
