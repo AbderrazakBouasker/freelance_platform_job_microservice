@@ -9,6 +9,7 @@ public class JobMapper {
         jobDto.setJobDescription(jobEntity.getJobDescription());
         jobDto.setJobProviderId(jobEntity.getJobProviderId());
         jobDto.setJobReceiverId(jobEntity.getJobReceiverId());
+        jobDto.setJobStatus(jobEntity.getJobStatus());
         return jobDto;
     }
 
@@ -17,6 +18,7 @@ public class JobMapper {
         jobEntity.setJobDescription(jobDto.getJobDescription());
         jobEntity.setJobProviderId(jobDto.getJobProviderId());
         jobEntity.setJobReceiverId(jobDto.getJobReceiverId());
+        jobEntity.setJobStatus(jobDto.getJobStatus());
         return jobEntity;
     }
 }
