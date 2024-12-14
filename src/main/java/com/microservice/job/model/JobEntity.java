@@ -18,5 +18,6 @@ public class JobEntity {
 
     private Long jobReceiverId;
 
+    private String jobStatus;
 
 }

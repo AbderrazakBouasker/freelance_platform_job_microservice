@@ -8,4 +8,5 @@ public class JobDto {
     private String jobDescription;
     private Long jobProviderId;
     private Long jobReceiverId;
+    private String jobStatus;
 }

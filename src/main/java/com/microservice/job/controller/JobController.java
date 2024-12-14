@@ -3,15 +3,28 @@ package com.microservice.job.controller;
 import com.microservice.job.dto.JobDto;
 import com.microservice.job.sevice.IJobService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {
+        RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE
+})
 @RestController
 @AllArgsConstructor
 public class JobController {
     private final IJobService jobService;
+
+    @RequestMapping(method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> handleOptions() {
+        return ResponseEntity
+                .ok()
+                .allow(HttpMethod.GET, HttpMethod.POST, HttpMethod.PUT,
+                        HttpMethod.DELETE, HttpMethod.OPTIONS)
+                .build();
+    }
 
     @PostMapping("/create")
     public ResponseEntity<Void> createJob(@RequestBody JobDto jobDto) {
